@@ -10,7 +10,14 @@ class Document
     output
   end
 
-  def add_breaks ()
-
+  def add_breaks (line)
+    output = []
+    while (line.length > 40)
+      nonsense = line.slice!(0..40)
+      readable = nonsense.rpartition(" ")
+      output << readable[0]
+      line.prepend(readable[2])
+    end
+    output << line
   end
 end
