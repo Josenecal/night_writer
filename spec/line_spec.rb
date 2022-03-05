@@ -1,5 +1,7 @@
 require 'rspec'
+require 'SimpleCov'
 require './lib/line'
+SimpleCov.start
 
 RSpec.describe Line do
 

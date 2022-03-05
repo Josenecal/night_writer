@@ -1,6 +1,8 @@
 require 'rspec'
 require 'CSV'
+require 'SimpleCov'
 require './lib/rosetta.rb'
+SimpleCov.start
 
 RSpec.describe 'Rosetta' do
 
