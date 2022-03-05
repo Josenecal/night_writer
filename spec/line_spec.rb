@@ -7,15 +7,14 @@ RSpec.describe Line do
     @line = Line.new("the quick brown fox jumped over the lazy brown dog")
   end
 
-  it 'initializes with a single argument (not accessable) and an empty readable output attribute' do
+  it 'initializes with a single argument and no accessible attributes' do
     expect(@line).to be_a(Line)
-    expect(@line.translated).to eq("")
   end
 
   it 'translates a line of text to three lines of braille' do
     expect(@line.translate.length).to eq(303) #account for three new line chars
     expect(@line.translate[0..5]).to eq(".oo.o.") # top dots of "the"
-    expect(@line.translate[-7..-1]).to eq("..o...\n")# bottom dots of "dog" 
+    expect(@line.translate[-7..-1]).to eq("..o...\n")# bottom dots of "dog"
   end
 
 end

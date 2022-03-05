@@ -1,10 +1,8 @@
 require './rosetta'
 class Line
-  attr_reader :translated
 
   def initialize (input)
     @input = input
-    @translated = ""
     @rosetta = Rosetta.from_nightwriter #refactor for nightreader
   end
 
