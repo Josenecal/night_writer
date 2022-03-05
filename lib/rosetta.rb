@@ -10,4 +10,9 @@ class Rosetta
     table.each { |line| library[line[:latin]] = line[:braille] }
     self.new(library)
   end
+
+  def translate (char)
+    @library[char]
+  end
+  
 end
