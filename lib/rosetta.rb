@@ -1,3 +1,5 @@
+require 'CSV'
+
 class Rosetta
   attr_reader :library
   def initialize (library)
@@ -14,5 +16,5 @@ class Rosetta
   def translate (char)
     @library[char]
   end
-  
+
 end
