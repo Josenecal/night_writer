@@ -32,4 +32,9 @@ RSpec.describe Document do
     expect(expected).to eq(["This is an example of a long paragraph.", "I'm writing this specifically so that", "the first paragraph will need to be", "broken into several lines, and so that", "the last line will hopefully be left", "kind of stubby", "", "This is the beginning of a second", "paragraph. I'm realizing that this test", "is long enough!"])
   end
 
+  it "translates latin to braille" do
+    expected = @document.translate
+    expect(expected).to eq(".oo.o...ooo..oooo...o.o.o..ooo..ooo.oo...oo.ooooo.oo..o.o.o.o....oo.o...o.o.o.oo\noooo.o..oo..o.......o.oo.ooo.o..o..o....oo....o..o.o...oo..ooo..oooo.o..o....o.o\no.......o.oo....o.....o.o..oo.....o.oo....ooo.o.......o.oo..o...o.......o...oooo\no.o.o..ooo..ooo.oo\no.oo.ooo.o...o.ooo\n..o.o..oo.....o...")
+  end
+
 end
