@@ -1,11 +1,20 @@
 require 'rspec'
-require 'lib/rosetta'
+require 'CSV'
+require './lib/rosetta.rb'
 
-RSpec.describe Rosetta do
+RSpec.describe 'Rosetta' do
+
+  before :each do
+    @stone = Rosetta.from_nightwriter
+  end
 
   it 'initializes with no arguments or readable attributes' do
-    stone = Rosetta.new
-    expect(stone).to be_a(Rosetta)
+    expect(@stone).to be_a(Rosetta)
+  end
+
+  it "returns a linear braille translation of a lowercase latin letter" do
+    expect(@stone.translate("a").to eq("..o..."))
+    expect(@stone.translate("j").to eq(".o.oo."))
   end
 
 end
