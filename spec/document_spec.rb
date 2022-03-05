@@ -20,10 +20,10 @@ RSpec.describe Document do
     expect(expected).to eq(["the quick red fox jumped over the lazy brown dog\n", "\n", "the lazy brown dog chased that fox all the way back to his den"])
   end
 
-  xit "Finds most appropriate break point in a  line of text" do
+  it "Finds most appropriate break point in a  line of text" do
     expected = @document.add_breaks("the quick red fox jumped over the lazy brown dog and the lazy brown dog chased that fox all the way back to his den")
 
-    expect(expected).to
+    expect(expected).to eq(["the quick red fox jumped over the lazy", "brown dog and the lazy brown dog chased", "that fox all the way back to his den"])
   end
 
   xit "parses paragraphs into lines of 40 characters or less" do
