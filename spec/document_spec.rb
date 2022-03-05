@@ -28,7 +28,7 @@ RSpec.describe Document do
 
   it "breaks down several paragraphs into lines preserving paragraph breaks" do
     document = Document.new "This is an example of a long paragraph. I'm writing this specifically so that the first paragraph will need to be broken into several lines, and so that the last line will hopefully be left kind of stubby\n\nThis is the beginning of a second paragraph. I'm realizing that this test is long enough!"
-    expected = document.parse
+    expected = document.parse_latin
     expect(expected).to eq(["This is an example of a long paragraph.", "I'm writing this specifically so that", "the first paragraph will need to be", "broken into several lines, and so that", "the last line will hopefully be left", "kind of stubby", "", "This is the beginning of a second", "paragraph. I'm realizing that this test", "is long enough!"])
   end
 
