@@ -22,7 +22,7 @@ input = File.open(ARGV[0])
 
 output = File.open(ARGV[1], "w")
 
-# write stuff to output fiel
+# write stuff to output file
 
 text_length = input.read.length
 puts "Created '#{ARGV[1]}' containing #{text_length} characters"

@@ -3,7 +3,7 @@ class Line
 
   def initialize (input)
     @input = input
-    @rosetta = Rosetta.from_nightwriter #refactor for nightreader
+    @rosetta = Rosetta.from_nightwriter #refactor for nightreader, holding instance as attribute to avoid redundant loading of instnaces
   end
 
   def translate
