@@ -1,4 +1,4 @@
-require_relative './line.rb'
+require_relative './rosetta.rb'
 class Document
 
   def initialize (input, rosetta)
@@ -47,7 +47,7 @@ class Document
     result = ""
      # @parsed_lines.map! {|line| Line.new(line)}
      @parsed_lines.each do |line|
-      translated_line = @rosetta.translate_line
+      translated_line = @rosetta.translate_line(line)
       result += translated_line
     end
     result
