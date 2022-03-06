@@ -1,4 +1,4 @@
-require './line.rb'
+require_relative './line.rb'
 class Document
 
   def initialize (input)
@@ -44,7 +44,7 @@ class Document
       # require 'pry';binding.pry
       result += translated_line
     end
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
     result
   end
 end
