@@ -19,4 +19,11 @@ RSpec.describe 'Rosetta' do
     expect(@stone.translate("j")).to eq(".o.oo.")
   end
 
+  it 'translates a line of text to three lines of braille' do
+    expected = @stone.translate_line("the quick brown fox jumped over the lazy brown dog")
+    expect(expected.length).to eq(303) #account for three new line chars
+    expect(expected[0..5]).to eq(".oo.o.") # top dots of "the"
+    expect(expected[-7..-1]).to eq("..o...\n")# bottom dots of "dog"
+  end
+
 end

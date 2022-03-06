@@ -1,10 +1,18 @@
 require_relative './line.rb'
 class Document
 
-  def initialize (input)
+  def initialize (input, rosetta)
     @raw_text = input
     @parsed_lines = []
+    @rosetta = rosetta
   end
+
+  def self.from_nightwriter (input)
+    rosetta = Rosetta.from_nightwriter
+    self.new(input, rosetta)
+  end
+
+  # todo: define self.from_nightwriter
 
   def find_breaks
     output = []
@@ -15,10 +23,10 @@ class Document
   def add_breaks (line)
     output = []
     while (line.length > 40)
-      nonsense = line.slice!(0..40)
-      readable = nonsense.rpartition(" ")
+      nonsense = line.slice!(0..40) # backlog - if we slice at the end of a word this may shorten a perfect 40 character line?
+      readable = nonsense.rpartition(" ") #finds last instance of a space, returns three part array
       output << readable[0]
-      line.prepend(readable[2])
+      line.prepend(readable[2]) #add back the beginning of whatever word we just cut in half with line.slice
     end
     output << line
   end
@@ -34,17 +42,14 @@ class Document
     @parsed_lines
   end
 
-  def translate
+  def get_translation
     parse_lines
-    # require 'pry';binding.pry
     result = ""
-     @parsed_lines.map! {|line| Line.new(line)}
+     # @parsed_lines.map! {|line| Line.new(line)}
      @parsed_lines.each do |line|
-      translated_line = line.translate
-      # require 'pry';binding.pry
+      translated_line = @rosetta.translate_line
       result += translated_line
     end
-    # require 'pry'; binding.pry
     result
   end
 end
