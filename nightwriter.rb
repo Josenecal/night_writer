@@ -16,7 +16,7 @@
 require_relative './lib/document.rb'
 
 input = File.open(ARGV[0])
-document = Document.new(input.read)
+document = LatinDocument.new(input.read)
 # require 'pry'; binding.pry
 translated_text = document.get_translation
 output = File.open(ARGV[1], "w")

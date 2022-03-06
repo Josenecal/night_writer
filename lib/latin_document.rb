@@ -1,5 +1,5 @@
 require_relative './rosetta.rb'
-class Document
+class LatinDocument
 
   def initialize (input, rosetta)
     @raw_text = input
