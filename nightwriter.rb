@@ -13,17 +13,14 @@
 
 # This code may be used freely under the creative commons license for personal,
 # academic and other non-commercial uses with attribution.
-
-
+require_relative './lib/document.rb'
 
 input = File.open(ARGV[0])
-
-# do stuff to reformat input as braile
-
+document = Document.new(input.read)
+# require 'pry'; binding.pry
+translated_text = document.translate
 output = File.open(ARGV[1], "w")
-
-# write stuff to output fiel
-
+output.write(translated_text)
 text_length = input.read.length
 puts "Created '#{ARGV[1]}' containing #{text_length} characters"
 input.close
