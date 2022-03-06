@@ -10,6 +10,7 @@ class Line
     translated_input = ["","",""]
     @input.each_char do |char|
       translated_char = @rosetta.translate(char)
+      translated_char = "......" if char == " "
       translated_input[0] += translated_char[2] + translated_char[3]
       translated_input[1] += translated_char[1] + translated_char[4]
       translated_input[2] += translated_char[0] + translated_char[5]
