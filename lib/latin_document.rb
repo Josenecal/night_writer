@@ -47,7 +47,7 @@ class LatinDocument
     result = ""
      # @parsed_lines.map! {|line| Line.new(line)}
      @parsed_lines.each do |line|
-      translated_line = @rosetta.translate_line(line)
+      translated_line = @rosetta.translate_line_latin_to_braille(line)
       result += translated_line
     end
     result
