@@ -1,18 +1,11 @@
 require_relative './rosetta.rb'
 class LatinDocument
 
-  def initialize (input, rosetta)
+  def initialize (input)
     @raw_text = input
     @parsed_lines = []
-    @rosetta = rosetta
+    @rosetta = Rosetta.from_nightwriter
   end
-
-  def self.from_nightwriter (input)
-    rosetta = Rosetta.from_nightwriter
-    self.new(input, rosetta)
-  end
-
-  # todo: define self.from_nightwriter
 
   def find_breaks
     output = []

@@ -28,4 +28,27 @@ RSpec.describe 'Rosetta' do
       expect(expected[-7..-1]).to eq("..o...\n")# bottom dots of "dog"
     end
   end
+
+  context "::from_nightreader" do
+
+    before :each do
+      @rock = Rosetta.from_nightreader
+    end
+
+    it 'initializes' do
+      expect(@rock).to be_a(Rosetta)
+    end
+
+    it "translates chars braille to latin" do
+      expect(@rock.translate("o.....")).to eq("a")
+      expect(@rock.translate(".ooo..")).to eq("j")
+    end
+
+    it "translates an array of braille character strings to a string of latin" do
+      braille = [".oooo.", "o.oo..", "o..o..", "......", "ooooo.","o...oo", ".oo...", "oo....", "o...o."]
+      expected = @rock.translate_line_braille_to_latin(braille)
+
+      expect(expected).to eq("the quick")
+    end
+  end
 end

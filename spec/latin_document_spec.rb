@@ -5,7 +5,7 @@ SimpleCov.start
 RSpec.describe LatinDocument do
 
   before :each do
-    @document = LatinDocument.from_nightwriter("the quick red fox jumped over the lazy brown dog")
+    @document = LatinDocument.new("the quick red fox jumped over the lazy brown dog")
   end
 
   it "initializes" do
@@ -15,7 +15,7 @@ RSpec.describe LatinDocument do
   it "scans for existing line breaks and reformats as arrays of paragraphs" do
     expected = @document.find_breaks
     expect(expected).to eq(["the quick red fox jumped over the lazy brown dog"])
-    with_breaks = LatinDocument.from_nightwriter("the quick red fox jumped over the lazy brown dog\n\nthe lazy brown dog chased that fox all the way back to his den")
+    with_breaks = LatinDocument.new("the quick red fox jumped over the lazy brown dog\n\nthe lazy brown dog chased that fox all the way back to his den")
     expected = with_breaks.find_breaks
     expect(expected).to eq(["the quick red fox jumped over the lazy brown dog\n", "\n", "the lazy brown dog chased that fox all the way back to his den"])
   end
@@ -27,7 +27,7 @@ RSpec.describe LatinDocument do
   end
 
   it "breaks down several paragraphs into lines preserving paragraph breaks" do
-    document = LatinDocument.from_nightwriter "This is an example of a long paragraph. I'm writing this specifically so that the first paragraph will need to be broken into several lines, and so that the last line will hopefully be left kind of stubby\n\nThis is the beginning of a second paragraph. I'm realizing that this test is long enough!"
+    document = LatinDocument.new "This is an example of a long paragraph. I'm writing this specifically so that the first paragraph will need to be broken into several lines, and so that the last line will hopefully be left kind of stubby\n\nThis is the beginning of a second paragraph. I'm realizing that this test is long enough!"
     expected = document.parse_lines
     expect(expected).to eq(["This is an example of a long paragraph.", "I'm writing this specifically so that", "the first paragraph will need to be", "broken into several lines, and so that", "the last line will hopefully be left", "kind of stubby", "", "This is the beginning of a second", "paragraph. I'm realizing that this test", "is long enough!"])
   end
