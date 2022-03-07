@@ -33,4 +33,8 @@ class BrailleDocument
     output
   end
 
+  def build_chars (input)
+    input.map { |trio| trio_deconstructor(trio) }
+  end
+
 end
