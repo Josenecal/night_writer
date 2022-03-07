@@ -23,4 +23,14 @@ class BrailleDocument
     output
   end
 
+  def trio_deconstructor (trio)
+    output = []
+    while trio[0].length > 0
+      to_add = ""
+      trio.each {|line| to_add.concat(line.slice!(0,2))}
+      output << to_add
+    end
+    output
+  end
+
 end
