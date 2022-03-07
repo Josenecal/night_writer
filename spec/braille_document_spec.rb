@@ -44,9 +44,9 @@ RSpec.describe BrailleDocument do
     expect(expected).to eq("over the lazy\nbrown dog\n")
   end
 
-  xit 'translates the entire document' do
+  it 'translates the entire document' do
     expected = @doc.get_translation
 
-    expect(expected).to eq("The quick red fox jumped over the lazy\nbrown dog")
+    expect(expected).to eq("the quick red fox jumped over the lazy\nbrown dog")
   end
 end
