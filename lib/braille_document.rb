@@ -12,4 +12,15 @@ class BrailleDocument
     @input.each_line { |line| output << line.chomp }
     output
   end
+
+  def group_lines (input)
+    output = []
+    while input.length > 0
+      accumulator = []
+      3.times { accumulator << input.shift }
+      output << accumulator
+    end
+    output
+  end
+
 end
