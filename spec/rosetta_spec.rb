@@ -43,5 +43,12 @@ RSpec.describe 'Rosetta' do
       expect(@rock.translate("o.....")).to eq("a")
       expect(@rock.translate(".ooo..")).to eq("j")
     end
+
+    it "translates an array of braille character strings to a string of latin" do
+      braille = [".oooo.", "o.oo..", "o..o..", "......", "ooooo.","o...oo", ".oo...", "oo....", "o...o."]
+      expected = @rock.translate_line_braille_to_latin(braille)
+
+      expect(expected).to eq("the quick")
+    end
   end
 end
