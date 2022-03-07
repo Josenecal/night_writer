@@ -17,7 +17,7 @@ class Rosetta
     @library[char]
   end
 
-  def translate_line (input)
+  def translate_line_latin_to_braille (input)
     translated_input = ["","",""]
       input.each_char { |char|
       translated_char = translate(char)
