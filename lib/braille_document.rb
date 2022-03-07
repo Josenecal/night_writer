@@ -43,9 +43,12 @@ class BrailleDocument
     output
   end
 
-  # def get_translation
-  #   parsed = parse_lines
-  #   grouped = group_lines(parsed)
-  #
+  def get_translation
+    parsed = parse_lines
+    grouped = group_lines(parsed)
+    as_chars = build_chars(grouped)
+    output = translate(as_chars)
+    output.chomp
+  end
 
 end
