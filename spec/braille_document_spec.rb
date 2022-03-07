@@ -18,4 +18,11 @@ RSpec.describe BrailleDocument do
     expected = @doc.parse_lines
     expect(expected).to eq([".oo.o...ooo..oooo...o.o.oo..ooo.oo...oo.ooooo.oo..o.o.o.o....oo.o...o.o.o.oo", "oooo.o..oo..o.......oo.o.o..o..o....oo....o..o.o...oo..ooo..oooo.o..o....o.o", "o.......o.oo....o...o.........o.oo....ooo.o.......o.oo..o...o.......o...oooo", "o.o.o..ooo..ooo.oo", "o.oo.ooo.o...o.ooo", "..o.o..oo.....o..."])
   end
+
+  it 'group lines of three together in subarrays' do
+    input = @doc.parse_lines
+    expected = @doc.group_lines(input)
+
+    expect(expected).to eq([[".oo.o...ooo..oooo...o.o.oo..ooo.oo...oo.ooooo.oo..o.o.o.o....oo.o...o.o.o.oo", "oooo.o..oo..o.......oo.o.o..o..o....oo....o..o.o...oo..ooo..oooo.o..o....o.o", "o.......o.oo....o...o.........o.oo....ooo.o.......o.oo..o...o.......o...oooo"], ["o.o.o..ooo..ooo.oo", "o.oo.ooo.o...o.ooo", "..o.o..oo.....o..."]])
+  end
 end
