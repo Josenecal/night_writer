@@ -37,4 +37,15 @@ class BrailleDocument
     input.map { |trio| trio_deconstructor(trio) }
   end
 
+  def translate (formatted_input)
+    output = ""
+    formatted_input.each { |line_array| output.concat(@rosetta.translate_line_braille_to_latin(line_array) + "\n")}
+    output
+  end
+
+  # def get_translation
+  #   parsed = parse_lines
+  #   grouped = group_lines(parsed)
+  #
+
 end
