@@ -15,8 +15,8 @@ RSpec.describe 'Rosetta' do
   end
 
   it "returns a linear braille translation of a lowercase latin letter" do
-    expect(@stone.translate("a")).to eq("..o...")
-    expect(@stone.translate("j")).to eq(".o.oo.")
+    expect(@stone.translate("a")).to eq("o.....")
+    expect(@stone.translate("j")).to eq(".ooo..")
   end
 
   it 'translates a line of text to three lines of braille' do
