@@ -38,6 +38,12 @@ RSpec.describe BrailleDocument do
     expect(expected).to eq(["o.o...", "o.ooo.", "o..oo.", ".ooo.o", "oo.oo.", "......", "oo.o..","o..oo.", "oooo.."])
   end
 
+  it 'translates a formatted input' do
+    expected = @doc.translate([["o.o.o.o....oo.o...o.o.o.oo", ".oo..ooo..oooo.o..o....o.o", "o.oo..o...o.......o...oooo"], ["o.o.o..ooo..ooo.oo", "o.oo.ooo.o...o.ooo", "..o.o..oo.....o..."]])
+
+    expect(expected).to eq("over the lazy\nbrown dog")
+  end
+
   it 'translates the entire document' do
     expected = @doc.get_translation
 
