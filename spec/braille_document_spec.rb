@@ -27,9 +27,9 @@ RSpec.describe BrailleDocument do
   end
 
   it "turn all line trios into character subarrays" do
-    expected = @doc.build_chars([["o.o.o.o....oo.o...o.o.o.oo", ".oo..ooo..oooo.o..o....o.o", "o.oo..o...o.......o...oooo"], ["o.o.o..ooo..ooo.oo", "o.oo.ooo.o...o.ooo", "..o.o..oo.....o..."])
+    expected = @doc.build_chars([["o.o.o.o....oo.o...o.o.o.oo", ".oo..ooo..oooo.o..o....o.o", "o.oo..o...o.......o...oooo"], ["o.o.o..ooo..ooo.oo", "o.oo.ooo.o...o.ooo", "..o.o..oo.....o..."]])
 
-    expect(expected).to eq([["o..oo.", "o.o.oo", "o..o..", "o.ooo.", "......", ".oooo.", "o.oo..", "o..o..", "......", "o.o.o.", "o.....", "o..ooo", "oo.ooo" ],["o.o...", "o.ooo.", "o..oo.", ".ooo.o", "oo.oo.", "......", "oo.o..","o..oo.", "oooo.."])
+    expect(expected).to eq([["o..oo.", "o.o.oo", "o..o..", "o.ooo.", "......", ".oooo.", "o.oo..", "o..o..", "......", "o.o.o.", "o.....", "o..ooo", "oo.ooo" ],["o.o...", "o.ooo.", "o..oo.", ".ooo.o", "oo.oo.", "......", "oo.o..","o..oo.", "oooo.."]])
   end
 
   it 'turn a single line trio subarray into braille character subarrays' do
