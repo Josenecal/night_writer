@@ -13,7 +13,7 @@
 
 # This code may be used freely under the creative commons license for personal,
 # academic and other non-commercial uses with attribution.
-require_relative './lib/document.rb'
+require_relative './lib/latin_document.rb'
 
 input = File.open(ARGV[0])
 document = LatinDocument.new(input.read)
