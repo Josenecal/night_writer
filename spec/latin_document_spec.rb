@@ -41,4 +41,11 @@ RSpec.describe LatinDocument do
     expect(@document.length).to eq(47) # -1 space when line break is added
   end
 
+  it "breaks words longer than 40 characters onto two lines" do
+    doc = LatinDocument.new("pneumonoultramicroscopicsilicovolcanoconiosis")
+    expected = doc.get_translation
+    expect(expected.lines[0].length).to eq(81)
+    expect(expected.lines[3].length).to eq(11)
+  end
+
 end
