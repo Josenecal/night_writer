@@ -14,6 +14,10 @@ RSpec.describe BrailleDocument do
     expect(@doc).to be_a(BrailleDocument)
   end
 
+  it 'returns output length less non-printing characters' do
+    expect(@doc.length).to eq(47)
+  end
+
   it 'parse brail document into lines' do
     expected = @doc.parse_lines
     expect(expected).to eq([".oo.o...ooo..oooo...o.o.oo..ooo.oo...oo.ooooo.oo..o.o.o.o....oo.o...o.o.o.oo", "oooo.o..oo..o.......oo.o.o..o..o....oo....o..o.o...oo..ooo..oooo.o..o....o.o", "o.......o.oo....o...o.........o.oo....ooo.o.......o.oo..o...o.......o...oooo", "o.o.o..ooo..ooo.oo", "o.oo.ooo.o...o.ooo", "..o.o..oo.....o..."])

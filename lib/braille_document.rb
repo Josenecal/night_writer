@@ -7,6 +7,13 @@ class BrailleDocument
     @rosetta = Rosetta.from_nightreader
   end
 
+  def length
+    message = get_translation
+    counter = 0
+    message.each_line { |line| counter += line.chomp.length}
+    counter
+  end
+
   def parse_lines
     output = []
     @input.each_line { |line| output << line.chomp }
