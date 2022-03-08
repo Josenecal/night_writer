@@ -16,10 +16,14 @@ class LatinDocument
   def add_breaks (line)
     output = []
     while (line.length > 40)
-      nonsense = line.slice!(0..40) # backlog - if we slice at the end of a word this may shorten a perfect 40 character line?
-      readable = nonsense.rpartition(" ") #finds last instance of a space, returns three part array
+      nonsense = line.slice!(0..39)
+      if !nonsense.include?(" ") #to tolerate words long than 40 chars
+        output << nonsense
+        next
+      end
+      readable = nonsense.rpartition(" ")
       output << readable[0]
-      line.prepend(readable[2]) #add back the beginning of whatever word we just cut in half with line.slice
+      line.prepend(readable[2])
     end
     output << line
   end
@@ -38,7 +42,6 @@ class LatinDocument
   def get_translation
     parse_lines
     result = ""
-     # @parsed_lines.map! {|line| Line.new(line)}
      @parsed_lines.each do |line|
       translated_line = @rosetta.translate_line_latin_to_braille(line)
       result += translated_line
@@ -52,5 +55,5 @@ class LatinDocument
     text.each_line {|line| count += line.chomp.length}
     output = count / 6
   end
-  
+
 end
