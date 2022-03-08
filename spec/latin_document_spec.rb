@@ -37,4 +37,8 @@ RSpec.describe LatinDocument do
     expect(expected).to eq(".oo.o...ooo..oooo...o.o.oo..ooo.oo...oo.ooooo.oo..o.o.o.o....oo.o...o.o.o.oo\noooo.o..oo..o.......oo.o.o..o..o....oo....o..o.o...oo..ooo..oooo.o..o....o.o\no.......o.oo....o...o.........o.oo....ooo.o.......o.oo..o...o.......o...oooo\no.o.o..ooo..ooo.oo\no.oo.ooo.o...o.ooo\n..o.o..oo.....o...\n")
   end
 
+  it "calculates output length" do
+    expect (@document.length).to eq(47) # -1 space when line break is added
+  end
+
 end
