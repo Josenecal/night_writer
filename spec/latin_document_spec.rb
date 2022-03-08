@@ -38,7 +38,7 @@ RSpec.describe LatinDocument do
   end
 
   it "calculates output length" do
-    expect (@document.length).to eq(47) # -1 space when line break is added
+    expect(@document.length).to eq(47) # -1 space when line break is added
   end
 
 end
