@@ -45,4 +45,12 @@ class LatinDocument
     end
     result
   end
+
+  def length
+    text = get_translation
+    count = 0
+    text.each_line {|line| count += line.chomp.length}
+    output = count / 6
+  end
+  
 end
