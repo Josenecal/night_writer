@@ -48,4 +48,20 @@ RSpec.describe LatinDocument do
     expect(expected.lines[3].length).to eq(11)
   end
 
+  it "keeps existing multiple line breaks" do
+    doc = LatinDocument.new("this test has\n\ntwo paragraphs")
+    expected = doc.get_translation
+
+    expect(expected.lines.length).to eq(9)
+    expect(expected.lines[4]).to eq("\n")
+  end
+
+  it "keeps existing multiple spaces" do
+    doc = LatinDocument.new("so many             spaces")
+    expected = doc.get_translation
+
+    expect(expected.lines[0].length).to eq(53)
+    expect(expected.lines[0][14..39]).to eq("..........................")
+  end
+
 end
